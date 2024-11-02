@@ -13,6 +13,7 @@ connectTodb();
 const app = express();
 app.use(cors({
     origin:"https://ems-client-nine.vercel.app",
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials:true
 }))
 
