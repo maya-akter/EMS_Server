@@ -8,6 +8,7 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
+        console.log(user);
         if (!user) {
             res.status(404).json({ success: false, error: "User not found" });
         }
@@ -23,7 +24,6 @@ const login = async (req, res) => {
         token,
         user:{_id:user._id,name:user.name,role:user.role},
     });
-
 
     } catch (error) {
         res.status(500).json({success:false,error:error.message});
